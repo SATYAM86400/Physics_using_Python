@@ -6,11 +6,11 @@ scene.autoscale = False
 
 launch_pos = vector(-5,0,0) # Initial position of projectile.
 
-angle_label = label(pos=(-8,-1,0), text='Launch angle here.',
+angle_label = label(pos=vector(-8,-1,0), text='Launch angle here.',
                 xoffset = 1, line = 0, box = False, opacity = 0)
-angle2_label = label(pos=(-8,-2,0), text='Launch angle here.',
+angle2_label = label(pos=vector(-8,-2,0), text='Launch angle here.',
                 xoffset = 1, line = 0, box = False, opacity = 0)
-speed_label = label(pos=(-8,-3,0), text='Launch speed here.',
+speed_label = label(pos=vector(-8,-3,0), text='Launch speed here.',
                 xoffset = 1, line = 0, box = False, opacity = 0)
 
 
@@ -51,8 +51,8 @@ if (use_ruler):
     box_x = launch_pos.x + 0.5*dx # Box's x-coordinate.
     box_x_max = -box_x ## Will likely need to change.
     while box_x <= box_x_max:
-        box(pos=(box_x,-0.05,0),
-            size=(0.95*dx,0.05,0.05),
+        box(pos=vector(box_x,-0.05,0),
+            size=vector(0.95*dx,0.05,0.05),
             color=color.white,
             opacity=0.5)
         box_x += dx
@@ -63,8 +63,8 @@ if (use_ruler):
     box_y_max = max(-box_y,box_x_max) ## Will likely need to change.
     ### May need to generate more ruler boxes within the motion loop.
     while box_y <= box_y_max:
-        box(pos=(-0.05,box_y,0),
-            size=(0.05,0.95*dy,0.05),
+        box(pos=vector(-0.05,box_y,0),
+            size=vector(0.05,0.95*dy,0.05),
             color=color.white,
             opacity=0.5)
         box_y += dy
@@ -254,16 +254,16 @@ while (angle <= max_angle):
             if (projectile.pos.x > box_x_max):
                 # Add box on x-axis.
                 box_x_max += dx
-                box(pos=(box_x_max,-0.05,0),
-                    size=(0.95*dx,0.05,0.05),
+                box(pos=vector(box_x_max,-0.05,0),
+                    size=vector(0.95*dx,0.05,0.05),
                     color=color.white,
                     opacity=0.5)
 
             if (projectile.pos.y > box_y_max):
                 # Add box on y-axis.
                 box_y_max += dy
-                box(pos=(-0.05,box_y_max,0),
-                    size=(0.05,0.95*dy,0.05),
+                box(pos=vector(-0.05,box_y_max,0),
+                    size=vector(0.05,0.95*dy,0.05),
                     color=color.white,
                     opacity=0.5)
         angle2 += delta_angle2
